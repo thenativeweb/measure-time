@@ -1,0 +1,29 @@
+{
+  "name": "measure-time",
+  "version": "0.0.0",
+  "description": "measure-time is a stopwatch.",
+  "contributors": [
+    {
+      "name": "Golo Roden",
+      "email": "golo.roden@thenativeweb.io"
+    },
+    {
+      "name": "Matthias Wagler",
+      "email": "matthias.wagler@thenativeweb.io"
+    }
+  ],
+  "main": "lib/measureTime.js",
+  "dependencies": {},
+  "devDependencies": {
+    "assertthat": "0.7.0",
+    "roboter": "0.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thenativeweb/measure-time.git"
+  },
+  "keywords": [
+    "time"
+  ],
+  "license": "MIT"
+}
