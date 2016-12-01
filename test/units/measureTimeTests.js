@@ -2,7 +2,7 @@
 
 const assert = require('assertthat');
 
-const measureTime = require('../lib/measureTime');
+const measureTime = require('../../lib/measureTime');
 
 suite('measureTime', () => {
   test('is a function.', done => {
@@ -35,6 +35,17 @@ suite('measureTime', () => {
 
       assert.that(elapsed.seconds).is.equalTo(1);
       assert.that(elapsed.milliseconds).is.between(500, 525);
+      done();
+    }, 1.5 * 1000);
+  });
+
+  test('calculates the total milliseconds.', done => {
+    const getElapsed = measureTime();
+
+    setTimeout(() => {
+      const elapsed = getElapsed();
+
+      assert.that(elapsed.millisecondsTotal).is.between(1500, 1525);
       done();
     }, 1.5 * 1000);
   });

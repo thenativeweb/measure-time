@@ -28,7 +28,8 @@ const elapsed = getElapsed();
 console.log(elapsed);
 // => {
 //      seconds: 3
-//      milliseconds: 141
+//      milliseconds: 141,
+//      millisecondsTotal: 3141
 //    }
 ```
 
@@ -37,7 +38,7 @@ console.log(elapsed);
 To build this module use [roboter](https://www.npmjs.com/package/roboter).
 
 ```bash
-$ bot build-server
+$ bot
 ```
 
 ## License

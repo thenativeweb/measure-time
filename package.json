@@ -15,8 +15,9 @@
   "main": "lib/measureTime.js",
   "dependencies": {},
   "devDependencies": {
-    "assertthat": "0.7.0",
-    "roboter": "0.8.1"
+    "assertthat": "0.8.2",
+    "roboter": "0.13.14",
+    "roboter-server": "0.13.14"
   },
   "repository": {
     "type": "git",
