@@ -2,7 +2,7 @@
 
 const assert = require('assertthat');
 
-const measureTime = require('../../lib/measureTime');
+const measureTime = require('../../src/measureTime');
 
 suite('measureTime', () => {
   test('is a function.', done => {
