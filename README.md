@@ -2,6 +2,16 @@
 
 measure-time is a stopwatch.
 
+## Status
+
+| Category         | Status                                                                                                                                               |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Version          | [![npm](https://img.shields.io/npm/v/measure-time)](https://www.npmjs.com/package/measure-time)                                                      |
+| Dependencies     | ![David](https://img.shields.io/david/thenativeweb/measure-time)                                                                                     |
+| Dev dependencies | ![David](https://img.shields.io/david/dev/thenativeweb/measure-time)                                                                                 |
+| Build            | [![CircleCI](https://img.shields.io/circleci/build/github/thenativeweb/measure-time)](https://circleci.com/gh/thenativeweb/measure-time/tree/master) |
+| License          | ![GitHub](https://img.shields.io/github/license/thenativeweb/measure-time)                                                                           |
+
 ## Installation
 
 ```shell
@@ -13,7 +23,13 @@ $ npm install measure-time
 First you need to add a reference to measure-time to your application.
 
 ```javascript
-const measureTime = require('measure-time');
+const measureTime = require('measure-time').default;
+```
+
+If you use TypeScript, use the following code instead:
+
+```typescript
+import measureTime from 'measure-time';
 ```
 
 Then, call the `measureTime` function to start measuring time. The function returns another function, `getElapsed`, that you need to call to get the elapsed time.
@@ -38,16 +54,5 @@ console.log(elapsed);
 To build this module use [roboter](https://www.npmjs.com/package/roboter).
 
 ```shell
-$ bot
+$ npx roboter
 ```
-
-## License
-
-The MIT License (MIT)
-Copyright (c) 2016-2018 the native web.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
