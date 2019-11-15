@@ -21,4 +21,4 @@ const measureTime = function (): () => MeasuredTime {
   };
 };
 
-export default measureTime;
+export { measureTime };

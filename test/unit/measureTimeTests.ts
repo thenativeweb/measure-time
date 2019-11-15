@@ -1,5 +1,5 @@
-import assert from 'assertthat';
-import measureTime from '../../lib/measureTime';
+import { assert } from 'assertthat';
+import { measureTime } from '../../lib/measureTime';
 
 suite('measureTime', (): void => {
   test('is a function.', async (): Promise<void> => {

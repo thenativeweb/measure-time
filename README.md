@@ -23,13 +23,13 @@ $ npm install measure-time
 First you need to add a reference to measure-time to your application.
 
 ```javascript
-const measureTime = require('measure-time').default;
+const { measureTime } = require('measure-time');
 ```
 
 If you use TypeScript, use the following code instead:
 
 ```typescript
-import measureTime from 'measure-time';
+import { measureTime } from 'measure-time';
 ```
 
 Then, call the `measureTime` function to start measuring time. The function returns another function, `getElapsed`, that you need to call to get the elapsed time.
