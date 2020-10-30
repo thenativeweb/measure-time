@@ -18,7 +18,7 @@ suite('measureTime', (): void => {
 
       assert.that(elapsed.seconds).is.equalTo(0);
       assert.that(elapsed.milliseconds).is.between(100, 125);
-    }, 0.1 * 1000);
+    }, 100);
   });
 
   test('measures longer time ranges.', async (): Promise<void> => {
@@ -29,7 +29,7 @@ suite('measureTime', (): void => {
 
       assert.that(elapsed.seconds).is.equalTo(1);
       assert.that(elapsed.milliseconds).is.between(500, 525);
-    }, 1.5 * 1000);
+    }, 1_500);
   });
 
   test('calculates the total milliseconds.', async (): Promise<void> => {
@@ -38,7 +38,7 @@ suite('measureTime', (): void => {
     setTimeout((): void => {
       const elapsed = getElapsed();
 
-      assert.that(elapsed.millisecondsTotal).is.between(1500, 1525);
-    }, 1.5 * 1000);
+      assert.that(elapsed.millisecondsTotal).is.between(1_500, 1_525);
+    }, 1_500);
   });
 });
