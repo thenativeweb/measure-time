@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/thenativeweb/measure-time/compare/5.0.2...5.0.3) (2021-05-10)
+
+
+### Bug Fixes
+
+* bump hosted-git-info from 2.8.8 to 2.8.9 ([#271](https://github.com/thenativeweb/measure-time/issues/271)) ([4bd239c](https://github.com/thenativeweb/measure-time/commit/4bd239cbde09a225ad77c452a18cd60ea3f27025))
+
 ## [5.0.2](https://github.com/thenativeweb/measure-time/compare/5.0.1...5.0.2) (2021-03-25)
 
 
