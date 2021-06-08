@@ -1,3 +1,10 @@
+## [5.0.5](https://github.com/thenativeweb/measure-time/compare/5.0.4...5.0.5) (2021-06-08)
+
+
+### Bug Fixes
+
+* bump trim-newlines from 3.0.0 to 3.0.1 ([#284](https://github.com/thenativeweb/measure-time/issues/284)) ([42ba756](https://github.com/thenativeweb/measure-time/commit/42ba75634bffc5d80831f5269765f57ce92065d8))
+
 ## [5.0.4](https://github.com/thenativeweb/measure-time/compare/5.0.3...5.0.4) (2021-06-08)
 
 
