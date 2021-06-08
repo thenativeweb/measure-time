@@ -1,3 +1,10 @@
+## [5.0.4](https://github.com/thenativeweb/measure-time/compare/5.0.3...5.0.4) (2021-06-08)
+
+
+### Bug Fixes
+
+* bump glob-parent from 5.1.1 to 5.1.2 ([#285](https://github.com/thenativeweb/measure-time/issues/285)) ([1ab741c](https://github.com/thenativeweb/measure-time/commit/1ab741cd376f23a97342efadb68901e45c7ff5db))
+
 ## [5.0.3](https://github.com/thenativeweb/measure-time/compare/5.0.2...5.0.3) (2021-05-10)
 
 
