@@ -1,3 +1,10 @@
+## [5.0.6](https://github.com/thenativeweb/measure-time/compare/5.0.5...5.0.6) (2021-06-10)
+
+
+### Bug Fixes
+
+* bump normalize-url from 6.0.0 to 6.0.1 ([#286](https://github.com/thenativeweb/measure-time/issues/286)) ([fd638ab](https://github.com/thenativeweb/measure-time/commit/fd638ab6d6e4bd6dc0a334fa3fc34256de528253))
+
 ## [5.0.5](https://github.com/thenativeweb/measure-time/compare/5.0.4...5.0.5) (2021-06-08)
 
 
