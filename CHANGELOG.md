@@ -1,3 +1,10 @@
+## [5.0.7](https://github.com/thenativeweb/measure-time/compare/5.0.6...5.0.7) (2021-08-16)
+
+
+### Bug Fixes
+
+* bump path-parse from 1.0.6 to 1.0.7 ([#298](https://github.com/thenativeweb/measure-time/issues/298)) ([2da0f96](https://github.com/thenativeweb/measure-time/commit/2da0f9691587703be86f0cbfd89ee80a623d1bac))
+
 ## [5.0.6](https://github.com/thenativeweb/measure-time/compare/5.0.5...5.0.6) (2021-06-10)
 
 
