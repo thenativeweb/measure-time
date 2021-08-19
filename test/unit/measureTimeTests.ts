@@ -17,7 +17,7 @@ suite('measureTime', (): void => {
       const elapsed = getElapsed();
 
       assert.that(elapsed.seconds).is.equalTo(0);
-      assert.that(elapsed.milliseconds).is.greaterThan(100);
+      assert.that(elapsed.milliseconds).is.atLeast(100);
       assert.that(elapsed.milliseconds).is.lessThan(125);
     }, 100);
   });
@@ -29,7 +29,7 @@ suite('measureTime', (): void => {
       const elapsed = getElapsed();
 
       assert.that(elapsed.seconds).is.equalTo(1);
-      assert.that(elapsed.milliseconds).is.greaterThan(500);
+      assert.that(elapsed.milliseconds).is.atLeast(500);
       assert.that(elapsed.milliseconds).is.lessThan(525);
     }, 1_500);
   });
@@ -40,7 +40,7 @@ suite('measureTime', (): void => {
     setTimeout((): void => {
       const elapsed = getElapsed();
 
-      assert.that(elapsed.millisecondsTotal).is.greaterThan(1_500);
+      assert.that(elapsed.millisecondsTotal).is.atLeast(1_500);
       assert.that(elapsed.millisecondsTotal).is.lessThan(1_525);
     }, 1_500);
   });
