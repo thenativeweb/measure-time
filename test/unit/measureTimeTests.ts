@@ -2,6 +2,8 @@ import { assert } from 'assertthat';
 import { measureTime } from '../../lib/measureTime';
 
 suite('measureTime', (): void => {
+  const epsilon = 50;
+
   test('is a function.', async (): Promise<void> => {
     assert.that(measureTime).is.ofType('function');
   });
@@ -18,7 +20,7 @@ suite('measureTime', (): void => {
 
       assert.that(elapsed.seconds).is.equalTo(0);
       assert.that(elapsed.milliseconds).is.atLeast(100);
-      assert.that(elapsed.milliseconds).is.lessThan(125);
+      assert.that(elapsed.milliseconds).is.lessThan(100 + epsilon);
     }, 100);
   });
 
@@ -30,7 +32,7 @@ suite('measureTime', (): void => {
 
       assert.that(elapsed.seconds).is.equalTo(1);
       assert.that(elapsed.milliseconds).is.atLeast(500);
-      assert.that(elapsed.milliseconds).is.lessThan(525);
+      assert.that(elapsed.milliseconds).is.lessThan(500 + epsilon);
     }, 1_500);
   });
 
@@ -41,7 +43,7 @@ suite('measureTime', (): void => {
       const elapsed = getElapsed();
 
       assert.that(elapsed.millisecondsTotal).is.atLeast(1_500);
-      assert.that(elapsed.millisecondsTotal).is.lessThan(1_525);
+      assert.that(elapsed.millisecondsTotal).is.lessThan(1_500 + epsilon);
     }, 1_500);
   });
 });
