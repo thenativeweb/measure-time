@@ -4,9 +4,9 @@ export interface MeasuredTime {
   millisecondsTotal: number;
 }
 
-const asTruncatedNumber = function (n: bigint): number {
-  return Math.trunc(Number(n));
-}
+const asTruncatedNumber = function (bigNumber: bigint): number {
+  return Math.trunc(Number(bigNumber));
+};
 
 const measureTime = function (): () => MeasuredTime {
   const start = process.hrtime.bigint();
