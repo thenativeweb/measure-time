@@ -1,5 +1,6 @@
 import { assert } from 'assertthat';
 import { measureTime } from '../../lib/measureTime';
+import { setTimeout as wait } from 'timers/promises';
 
 suite('measureTime', (): void => {
   const epsilon = 50;
@@ -13,49 +14,40 @@ suite('measureTime', (): void => {
   });
 
   test('measures short time ranges.', async (): Promise<void> => {
+    const timeoutMs = 100;
     const getElapsed = measureTime();
 
-    await new Promise<void>((resolve): void => {
-      setTimeout((): void => {
-        const elapsed = getElapsed();
+    await wait(timeoutMs);
 
-        assert.that(elapsed.seconds).is.equalTo(0);
-        assert.that(elapsed.milliseconds).is.atLeast(100);
-        assert.that(elapsed.milliseconds).is.lessThan(100 + epsilon);
+    const elapsed = getElapsed();
 
-        resolve();
-      }, 100);
-    });
+    assert.that(elapsed.seconds).is.equalTo(0);
+    assert.that(elapsed.milliseconds).is.atLeast(timeoutMs);
+    assert.that(elapsed.milliseconds).is.lessThan(timeoutMs + epsilon);
   });
 
   test('measures longer time ranges.', async (): Promise<void> => {
+    const timeoutMs = 500;
     const getElapsed = measureTime();
 
-    await new Promise<void>((resolve): void => {
-      setTimeout((): void => {
-        const elapsed = getElapsed();
+    await wait(timeoutMs);
 
-        assert.that(elapsed.seconds).is.equalTo(1);
-        assert.that(elapsed.milliseconds).is.atLeast(500);
-        assert.that(elapsed.milliseconds).is.lessThan(500 + epsilon);
+    const elapsed = getElapsed();
 
-        resolve();
-      }, 1_500);
-    });
+    assert.that(elapsed.seconds).is.equalTo(1);
+    assert.that(elapsed.milliseconds).is.atLeast(timeoutMs);
+    assert.that(elapsed.milliseconds).is.lessThan(timeoutMs + epsilon);
   });
 
   test('calculates the total milliseconds.', async (): Promise<void> => {
+    const timeoutMs = 1_500;
     const getElapsed = measureTime();
 
-    await new Promise<void>((resolve): void => {
-      setTimeout((): void => {
-        const elapsed = getElapsed();
+    await wait(timeoutMs);
 
-        assert.that(elapsed.millisecondsTotal).is.atLeast(1_500);
-        assert.that(elapsed.millisecondsTotal).is.lessThan(1_500 + epsilon);
+    const elapsed = getElapsed();
 
-        resolve();
-      }, 1_500);
-    });
+    assert.that(elapsed.millisecondsTotal).is.atLeast(timeoutMs);
+    assert.that(elapsed.millisecondsTotal).is.lessThan(timeoutMs + epsilon);
   });
 });
