@@ -34,7 +34,7 @@ suite('measureTime', (): void => {
 
     const elapsed = getElapsed();
 
-    assert.that(elapsed.seconds).is.equalTo(1);
+    assert.that(elapsed.seconds).is.equalTo(0);
     assert.that(elapsed.milliseconds).is.atLeast(timeoutMs);
     assert.that(elapsed.milliseconds).is.lessThan(timeoutMs + epsilon);
   });
@@ -47,6 +47,7 @@ suite('measureTime', (): void => {
 
     const elapsed = getElapsed();
 
+    assert.that(elapsed.seconds).is.equalTo(1);
     assert.that(elapsed.millisecondsTotal).is.atLeast(timeoutMs);
     assert.that(elapsed.millisecondsTotal).is.lessThan(timeoutMs + epsilon);
   });
