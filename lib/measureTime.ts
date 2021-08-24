@@ -17,12 +17,11 @@ const measureTime = function (): () => MeasuredTime {
     const nanoseconds = end - start;
     const milliseconds = nanoseconds / BigInt(1e6);
     const seconds = milliseconds / BigInt(1e3);
-    const millisecondsTotal = (seconds / BigInt(1e3)) + milliseconds
 
     return {
       seconds: asTruncatedNumber(seconds),
-      milliseconds: asTruncatedNumber(milliseconds),
-      millisecondsTotal: asTruncatedNumber(millisecondsTotal)
+      milliseconds: asTruncatedNumber(milliseconds - (seconds * BigInt(1e3))),
+      millisecondsTotal: asTruncatedNumber(milliseconds)
     };
   };
 };

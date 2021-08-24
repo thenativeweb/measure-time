@@ -37,6 +37,8 @@ suite('measureTime', (): void => {
     assert.that(elapsed.seconds).is.equalTo(0);
     assert.that(elapsed.milliseconds).is.atLeast(timeoutMs);
     assert.that(elapsed.milliseconds).is.lessThan(timeoutMs + epsilon);
+    assert.that(elapsed.millisecondsTotal).is.atLeast(timeoutMs);
+    assert.that(elapsed.millisecondsTotal).is.lessThan(timeoutMs + epsilon);
   });
 
   test('calculates the total milliseconds.', async (): Promise<void> => {
@@ -48,6 +50,8 @@ suite('measureTime', (): void => {
     const elapsed = getElapsed();
 
     assert.that(elapsed.seconds).is.equalTo(1);
+    assert.that(elapsed.milliseconds).is.atLeast(500);
+    assert.that(elapsed.milliseconds).is.lessThan(500 + epsilon);
     assert.that(elapsed.millisecondsTotal).is.atLeast(timeoutMs);
     assert.that(elapsed.millisecondsTotal).is.lessThan(timeoutMs + epsilon);
   });
