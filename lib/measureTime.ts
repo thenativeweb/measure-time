@@ -4,19 +4,24 @@ export interface MeasuredTime {
   millisecondsTotal: number;
 }
 
+const asTruncatedNumber = function (bigNumber: bigint): number {
+  return Math.trunc(Number(bigNumber));
+};
+
 const measureTime = function (): () => MeasuredTime {
-  const start = process.hrtime();
+  const start = process.hrtime.bigint();
 
   return function (): MeasuredTime {
-    const end = process.hrtime(start);
+    const end = process.hrtime.bigint();
 
-    const seconds = end[0];
-    const milliseconds = Math.trunc(end[1] / 1_000_000);
+    const nanoseconds = end - start;
+    const milliseconds = nanoseconds / BigInt(1e6);
+    const seconds = milliseconds / BigInt(1e3);
 
     return {
-      seconds,
-      milliseconds,
-      millisecondsTotal: (seconds * 1_000) + milliseconds
+      seconds: asTruncatedNumber(seconds),
+      milliseconds: asTruncatedNumber(milliseconds - (seconds * BigInt(1e3))),
+      millisecondsTotal: asTruncatedNumber(milliseconds)
     };
   };
 };
