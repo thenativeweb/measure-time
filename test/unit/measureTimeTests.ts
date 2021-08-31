@@ -3,10 +3,37 @@ import { measureTime } from '../../lib/measureTime';
 import { setTimeout as wait } from 'timers/promises';
 
 suite('measureTime', function (): void {
-  const expectedStdError = 5;
-  const expectedVariance = expectedStdError ** 2;
+  const calibrationSamplesCount = 100;
 
-  this.timeout(3_000);
+  let expectedStdError: number;
+  let expectedVariance: number;
+
+  this.timeout(110 * calibrationSamplesCount);
+
+  suiteSetup(async (): Promise<void> => {
+    let calibrationVarianceSum = 0;
+
+    for (let i = 0; i < calibrationSamplesCount; i++) {
+      const timeoutMs = Math.random() * 100;
+      const measure = measureTime();
+
+      await wait(timeoutMs);
+
+      const measured = measure();
+      const variance = (timeoutMs - measured.millisecondsTotal) ** 2;
+
+      calibrationVarianceSum += variance;
+    }
+
+    const calibrationVariance = calibrationVarianceSum / calibrationSamplesCount;
+    const calibrationStdError = Math.sqrt(calibrationVariance);
+
+    expectedStdError = 3 * calibrationStdError;
+    expectedVariance = expectedStdError ** 2;
+
+    // eslint-disable-next-line no-console
+    console.log(`Calibrated tests to sigma: ${expectedStdError}.`);
+  });
 
   test('is a function.', async (): Promise<void> => {
     assert.that(measureTime).is.ofType('function');
