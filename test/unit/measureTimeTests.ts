@@ -15,12 +15,13 @@ suite('measureTime', function (): void {
 
     for (let i = 0; i < calibrationSamplesCount; i++) {
       const timeoutMs = Math.random() * 100;
-      const measure = measureTime();
+      const start = process.hrtime.bigint();
 
       await wait(timeoutMs);
 
-      const measured = measure();
-      const variance = (timeoutMs - measured.millisecondsTotal) ** 2;
+      const end = process.hrtime.bigint();
+      const measuredMs = Number((end - start) / BigInt(1e6));
+      const variance = (timeoutMs - measuredMs) ** 2;
 
       calibrationVarianceSum += variance;
     }
@@ -28,11 +29,11 @@ suite('measureTime', function (): void {
     const calibrationVariance = calibrationVarianceSum / calibrationSamplesCount;
     const calibrationStdError = Math.sqrt(calibrationVariance);
 
-    expectedStdError = 3 * calibrationStdError;
+    expectedStdError = 5 * calibrationStdError;
     expectedVariance = expectedStdError ** 2;
 
     // eslint-disable-next-line no-console
-    console.log(`Calibrated tests to sigma: ${expectedStdError}.`);
+    console.log(`Calibrated tests to sigma: ${calibrationStdError} ms. Using 5 sigma interval (+/- ${expectedStdError} ms)`);
   });
 
   test('is a function.', async (): Promise<void> => {
