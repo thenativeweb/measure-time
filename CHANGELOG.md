@@ -1,3 +1,10 @@
+## [5.0.8](https://github.com/thenativeweb/measure-time/compare/5.0.7...5.0.8) (2022-03-25)
+
+
+### Bug Fixes
+
+* bump minimist from 1.2.5 to 1.2.6 ([#319](https://github.com/thenativeweb/measure-time/issues/319)) ([69ee9b5](https://github.com/thenativeweb/measure-time/commit/69ee9b53499eb359e0f36f4823f323258ca16efd))
+
 ## [5.0.7](https://github.com/thenativeweb/measure-time/compare/5.0.6...5.0.7) (2021-08-16)
 
 
